@@ -19,6 +19,15 @@ export default function AppMain(){
         
     }
 
+
+    function removeGame(i) {
+      console.log(i);
+      const filteredGame = games.filter((game,index) => index != i)
+      console.log(filteredGame);
+      setGames(filteredGame)
+      
+    }
+
   return (
   <main> 
     <div className="container">
@@ -34,7 +43,9 @@ export default function AppMain(){
               <li className="list-group-item d-flex justify-content-between align-items-center p-3 bg-secondary text-white" 
                   key={index + "-" + game.replaceAll(" ","-").toLowerCase()}>
               {game}
-              <button className="badge text-bg-warning rounded-pill">🗑️😡delete</button>
+              <button className="badge text-bg-warning rounded-pill" onClick={()=>removeGame(index)}>
+                🗑️😡delete
+              </button>
               </li>
             ))}
           </ul>
